@@ -1,0 +1,5 @@
+/* Swiper CSS - Must come first */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
+@import "tailwindcss";

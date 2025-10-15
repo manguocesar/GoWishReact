@@ -88,3 +88,11 @@ src/
 ├── main.tsx           # Application entry point
 └── index.css          # Global styles
 ```
+
+
+## Bundle
+React + React DOM: ~175-190 kB
+Apollo Client: ~50-60 kB
+Swiper.js: ~35-40 kB
+Tailwind CSS: ~25 kB
+Other dependencies: ~50-60 kB

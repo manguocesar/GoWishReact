@@ -29,10 +29,9 @@ const PokemonCardSkeleton = () => {
         
         {/* Content skeleton */}
         <div className="p-4 flex-1 space-y-1 flex flex-col">
-          <ShimmerElement />
-          <ShimmerElement />
-          <ShimmerElement />
-          <ShimmerElement />
+          {Array.from({ length: 4 }).map((_, index) => (
+            <ShimmerElement key={index} />
+          ))}
         </div>
       </Card>
     </>

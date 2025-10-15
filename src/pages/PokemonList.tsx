@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Pagination, Autoplay} from 'swiper/modules'
 import { ErrorCard } from './ErrorCard'
 import { PokemonCard } from '@/components/organisms/PokemonCard'
 import { PokemonCardSkeleton } from '@/components/molecules'
@@ -15,7 +15,31 @@ const SWIPER_BUTTON_STYLES = `
     font-size: 18px !important;
     font-weight: bold;
   }
+  
+  /* Lazy loading preloader styling */
+  .swiper-lazy-preloader {
+    width: 40px !important;
+    height: 40px !important;
+    margin-left: -20px !important;
+    margin-top: -20px !important;
+    border: 4px solid #f3f4f6 !important;
+    border-top: 4px solid #3b82f6 !important;
+    border-radius: 50% !important;
+    animation: swiper-preloader-spin 1s linear infinite !important;
+  }
+  
+  @keyframes swiper-preloader-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Hide preloader when image is loaded */
+  .swiper-lazy-loaded .swiper-lazy-preloader {
+    display: none !important;
+  }
 `
+  
+
 
 const PokemonList = () => {
   const { loading: loadingPokemon, error, data, refetch } = usePokemons(config.app.DEFAULT_POKEMON_LIMIT)
@@ -53,8 +77,13 @@ const PokemonList = () => {
         
         <div className="relative max-w-7xl mx-auto px-2 md:px-0">
           <Swiper
-            modules={[Navigation]}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            modules={[Pagination, Navigation, Autoplay]}
             centeredSlides={false}
+            loop={true}
             navigation={getSwiperNavigation(navigationPrefix)}
             breakpoints={config.swiper.DEFAULT_BREAKPOINTS}
           >

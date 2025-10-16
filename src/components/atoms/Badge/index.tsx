@@ -5,6 +5,7 @@ export interface BadgeProps {
   variant?: 'type' | 'ability'
 }
 
+// could use generics
 const Badge = ({ children, variant = 'type'}: BadgeProps) => {
   const baseClasses = 'px-2 py-1 text-xs capitalize border rounded-full font-medium'
   

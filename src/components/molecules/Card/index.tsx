@@ -9,10 +9,14 @@ export interface CardProps {
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
+// could use generics
+// Could be more extensible with a plugin system
 const Card = ({
   children,
   className = '',
   padding = 'md',
+  // ✅ Could add: customPadding?: string
+  // ✅ Could add: customStyles?: CSSProperties
   shadow = 'md',
   border = true,
   rounded = 'xl',

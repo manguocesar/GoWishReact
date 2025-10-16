@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
 import { PokemonImage } from './index'
 
 describe('PokemonImage', () => {
